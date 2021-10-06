@@ -1,0 +1,5 @@
+<div class="text-center border border-danger m-3 p-3 bg-dark" *ngIf="item">
+    <h4 class="text-white">Are you sure want to delete Account:- {{item}}</h4>
+    <button class="btn btn-danger m-1" (click)="delete()">Delete</button>
+    <button class="btn btn-secondary m-1" (click)="cancel()">Cancel</button>
+</div>

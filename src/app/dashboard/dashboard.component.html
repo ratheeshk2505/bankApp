@@ -1,0 +1,82 @@
+<header class="sticky-top">
+    <div class="container-fluid">
+        <div class="row heads1">
+            <div class="row">
+                    <div class="col-3 text-end"></div>
+                    <div class="col-6 text-center"><a class="per_name btn" id="user">{{user}} Welcome to FedBank</a></div>
+                    <div class="col-3 text-end"><span class="text-white p-2" title="Login Time">{{dLogin | date:'short' | uppercase}}</span><a class="per_name btn" title="Logout" (click)="logout()"> LogOut</a></div>
+            </div>
+            
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div [ngClass]="acno? 'dim-div' : '' " class="row">
+        <div class="col-12 col-sm-12 col-md-1 col-lg-1"></div>
+        <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+            
+            <div class="mt-5 mb-2 border border-info rounded p-3 bg-dark text-white">
+                <!-- {{testHead}} -->
+                <h3 appHighlight class="text-center mb-4">Deposit Amount</h3>
+                <form [formGroup]="dash_depoForm" (ngSubmit)="deposit()">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="d_ac_no" id="d_ac_no" formControlName="d_ac_no" placeholder="To Account Number">
+                        <span *ngIf="(this.dash_depoForm.get('d_ac_no')?.touched||this.dash_depoForm.get('d_ac_no')?.dirty)&&this.dash_depoForm.get('d_ac_no')?.errors" class="text-white m-3">Invalid Account Number</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="d_pwd1" id="d_pwd1" formControlName="d_pswrd" placeholder="Password">
+                        <span *ngIf="(this.dash_depoForm.get('d_pswrd')?.touched||this.dash_depoForm.get('d_pswrd')?.dirty)&&this.dash_depoForm.get('d_pswrd')?.errors" class="text-white m-3">Invalid Password</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" name="d_amount" id="d_amount" formControlName="d_amount" placeholder="Amount">
+                        <span *ngIf="(this.dash_depoForm.get('d_amount')?.touched||this.dash_depoForm.get('d_amount')?.dirty)&&this.dash_depoForm.get('d_amount')?.errors" class="text-white m-3">Invalid Amount</span>
+                    </div>
+                    <div class="text-center mt-3">  
+                        <button class="btn btn-success m-1" type="submit">Confirm Deposit</button>
+                        <button class="btn btn-danger m-1" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="m-5 text-white border border-info rounded text-center">
+                <a routerLink="register" class="">New User? Register Here</a>
+            </div> -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+            <div class=" mt-5 mb-2 border border-info rounded p-3 bg-dark text-white">
+                <!-- {{testHead}} -->
+                <h3 appHighlight class="text-center mb-4">Withdraw Amount</h3>
+                <form [formGroup]="dash_withdrawForm" (ngSubmit)="withdraw()">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="w_ac_no" id="w_ac_no" formControlName="w_ac_no" placeholder="From Account Number">
+                        <span *ngIf="(this.dash_withdrawForm.get('w_ac_no')?.touched||this.dash_withdrawForm.get('w_ac_no')?.dirty)&&this.dash_withdrawForm.get('w_ac_no')?.errors" class="text-white m-3">Invalid Account Number</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="w_pwd1" id="w_pwd1" formControlName="w_pswrd" placeholder="Password">
+                        <span *ngIf="(this.dash_withdrawForm.get('w_pswrd')?.touched||this.dash_withdrawForm.get('w_pswrd')?.dirty)&&this.dash_withdrawForm.get('w_pswrd')?.errors" class="text-white m-3">Invalid Password</span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" name="w_amount" id="w_amount" formControlName="w_amount" placeholder="Amount">
+                        <span *ngIf="(this.dash_withdrawForm.get('w_amount')?.touched||this.dash_withdrawForm.get('w_amount')?.dirty)&&this.dash_withdrawForm.get('w_amount')?.errors" class="text-white m-3">Invalid Amount</span>
+                    </div>
+                    <div class="text-center mt-3">  
+                        <button class="btn btn-success m-1" type="submit">Confirm Withdrawl</button>
+                        <button class="btn btn-danger m-1" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="m-5 text-white border border-info rounded text-center">
+                <a routerLink="register" class="">New User? Register Here</a>
+            </div> -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-1 col-lg-1"></div>
+        <div class="text-white text-center my-3"><button class="btn btn-secondary"><a routerLink="/transaction">Transaction History</a></button></div>
+    </div>
+        <app-delete-confirm (onCancel)="onCancel()" (onDelete)="onDelete($event)" [item]="acno"></app-delete-confirm>
+        <div class="text-white text-center my-2"><button class="btn btn-danger" (click)="deleteAtParent()">Delete Account</button></div>
+
+        <!-- animations -->
+        <div>
+            <app-animation-demo></app-animation-demo>
+        </div>
+</div>
+

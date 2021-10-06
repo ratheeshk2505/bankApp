@@ -1,0 +1,33 @@
+<header class="sticky-top">
+    <div class="container-fluid">
+        <div class="row heads1">
+            <div class="col-12 text-center"><a class="per_name btn" id="user">{{user}} Welcome to FedBank</a></div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h3 class="text-white text-center p-3">Transaction History</h3>
+            <table class="table border">
+                <thead class="text-white text-center">
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody class="text-white text-center">
+                    <tr *ngFor="let trans of transactions">
+                        <td>{{trans.type}}</td>
+                        <td>₹ {{trans.amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <button class="btn btn-primary mt-3"><a routerLink="/dashboard">Back to Dashboard</a></button>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

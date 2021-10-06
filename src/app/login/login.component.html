@@ -1,0 +1,51 @@
+<header class="sticky-top">
+    <div class="container-fluid">
+        <div class="row heads1">
+            <div class="col-12 text-center"><a class="per_name btn" href="#" id="user">Welcome to FedBank</a></div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 "></div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-3 p-5">
+            <div class=" mt-5 mb-2 border border-info rounded p-3 bg-dark text-white">
+                <!-- {{testHead}} -->
+                <h3 class="text-center mb-4">Login to FedBank</h3>
+                <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
+                    <div class="mb-3">
+                                <!-- $event reference binding -->
+                        <!-- <input type="text" class="form-control" id="ac_no" (change)="accNum($event)" placeholder="Account Number" [value]="username"> -->
+                                <!-- template reference binding -->
+                        <!-- <input type="text" class="form-control" id="ac_no" #ac_no placeholder="Account Number" [value]="username"> -->
+                                <!-- two way binding -->
+                        <input type="text" class="form-control" name="ac_no" id="ac_no" formControlName="ac_no" placeholder="Account Number">
+                        <span *ngIf="(this.loginForm.get('ac_no')?.touched||this.loginForm.get('ac_no')?.dirty)&&this.loginForm.get('ac_no')?.errors" class="text-white m-3">Invalid Account Number.</span>
+                    </div>
+                    <div class="mb-3">
+                                <!-- $event reference binding -->
+                        <!-- <input type="password" class="form-control" id="pwd1" (change)="pwrd1($event)" placeholder="Password"> -->
+                                <!-- template reference binding -->
+                        <!-- <input type="password" class="form-control" id="pwd1" #pwrd placeholder="Password"> -->
+                                <!-- two way binding -->
+                        <input type="password" class="form-control" name="pwd1" id="pwd1" formControlName="pswrd" placeholder="Password">
+                        <span *ngIf="(this.loginForm.get('pswrd')?.touched||this.loginForm.get('pswrd')?.dirty)&&this.loginForm.get('pswrd')?.errors" class="text-white m-3">Invalid Password.</span>
+                    </div>
+                    <div class="text-center mt-3">
+                                <!-- template reference binding -->
+                        <!-- <button class="btn btn-success m-1" (click)="authenticate(ac_no,pwrd)">Login</button> -->
+                                <!-- $event reference binding -->
+                                <!-- two way binding -->    
+                        <button class="btn btn-success m-1" type="submit">Login</button>
+                        <button class="btn btn-danger m-1" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div class="m-5 text-white border border-info rounded text-center">
+                <a routerLink="register" class="">New User? Register Here</a>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3"></div>
+        
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="m-3">
+    <div [@openClose]="isOpen? 'open' : 'close' " class="text-center">
+        <h4 class="p-3">its now {{isOpen? "open" : "close" }}</h4>
+    </div>
+    <div class="text-center m-2"><button class="btn btn-success" (click)="toggle()">Toggle</button></div>
+</div>
+

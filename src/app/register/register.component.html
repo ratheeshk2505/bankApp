@@ -1,0 +1,140 @@
+<header class="sticky-top">
+    <div class="container-fluid">
+        <div class="row heads1">
+            <div class="col-12 text-center"><a class="per_name btn" href="#" id="user">Join Our Family, Fedbank</a></div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container mt-5">
+    <div class="text-white ">
+        <form [formGroup]="registerForm" (ngSubmit)="createAccount()">
+        <div class="row my-3">
+            
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="name" class="required">Full Name :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="text" name="fname" id="fname" formControlName="p_name" class="form-control" required>
+                <span *ngIf="(this.registerForm.get('p_name')?.touched||this.registerForm.get('p_name')?.dirty)&&this.registerForm.get('p_name')?.errors" class="text-white m-3">Invalid Name. Aphabets Only Accepted</span>
+            </div>
+        </div>
+        <!-- <div class="row my-3">
+            
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="dob" class="required">DOB (DD-MM-YYYY):</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="date" name="dob" id="dob" class="form-control" required>
+            </div>
+        </div>
+        <div class="row my-3">
+           
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="name">Guardian Name (for minor):</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="text" name="gname" id="gname" class="form-control" required> 
+            </div>
+        </div>
+        <div class="row my-3">
+           
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="exampleFormControlTextarea1" class="required">Address :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" required></textarea>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="pin" class="required">PIN Code :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="text" name="pin" id="pin" class="form-control" required>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="email" class="required">Email :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="email" name="emailid" id="emailid" class="form-control" required>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="phone" class="required">Mobile Number :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="tel" name="mob" id="mob" class="form-control" required>
+            </div>
+        </div> -->
+        <!-- <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="ac_type" class="required">Account Type :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <select name="ac_type" id="ac_type" class="form-control" required>
+                    <option value="default">Select Account Type</option>
+                    <option value="savings">Savings Account</option>
+                    <option value="current">Current Account</option>
+                    <option value="joint">Joint Account</option>
+                </select>
+            </div>
+        </div> -->
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="ac_no" class="required">Account Number :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="number" name="ac_no" id="ac_no"  formControlName="ac_no" class="form-control" required>
+                <span *ngIf="(this.registerForm.get('ac_no')?.touched||this.registerForm.get('ac_no')?.dirty)&&this.registerForm.get('ac_no')?.errors" class="text-white m-3">Invalid Account Number. Digits Only Accepted</span>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="uname" class="required">Username :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="text" name="uname" id="uname"  formControlName="uname" class="form-control" required>
+                <span *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&this.registerForm.get('uname')?.errors" class="text-white m-3">Invalid Username. Alphabets Only Accepted</span>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="pwd" class="required">Password :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="password" name="p_word1" id="p_word1"  formControlName="p_word1" class="form-control" required>
+                <span *ngIf="(this.registerForm.get('p_word1')?.touched||this.registerForm.get('p_word1')?.dirty)&&this.registerForm.get('p_word1')?.errors" class="text-white m-3">Invalid Password. Alphabets, Digits and Symbol (@) Only Accepted</span>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="bal" class="required">Initial Deposit :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="number" name="bal" id="bal"  formControlName="bal" class="form-control" required>
+                <span *ngIf="(this.registerForm.get('bal')?.touched||this.registerForm.get('bal')?.dirty)&&this.registerForm.get('bal')?.errors" class="text-white m-3">Invalid Account Number. Digits Only Accepted</span>
+            </div>
+        </div>
+        <!-- <div class="row my-3">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                <label for="pwd" class="required">Confirm Password :</label>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                <input type="password" name="pwd2" id="pwd2" class="form-control" required>
+            </div>
+        </div> -->
+        <div class="row my-3">
+            
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary m-1">Create Account</button>
+                <button type="reset" class="btn btn-danger m-1">Reset</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
